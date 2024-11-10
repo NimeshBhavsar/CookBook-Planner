@@ -17,17 +17,14 @@ function addNewMeal() {
     }
 }
 
-
-// Function to add a new meal to the database and display all meals
+// Function to add a new meal (original function)
 async function addMealToList(event) {
     event.preventDefault();
 
-    // Get values from the input fields
     const mealName = document.getElementById('mealName').value;
     const mealIngredient = document.getElementById('mealIncredient').value;
     const mealProcedure = document.getElementById('mealProcedure').value;
 
-    // Send a POST request to add the recipe to the database
     try {
         await fetch('http://localhost:3000/recipes', {
             method: 'POST',
@@ -37,34 +34,16 @@ async function addMealToList(event) {
                 ingredients: mealIngredient,
                 procedur: mealProcedure
             })
+        });
 
-        }
-
-        );
-        console.log('meal added successfully');
-
-        // Clear the input fields
         document.getElementById('mealName').value = '';
         document.getElementById('mealIncredient').value = '';
         document.getElementById('mealProcedure').value = '';
-
-        // Fetch and display all meals
-        fetchAndDisplayMeals();
+        fetchAndDisplayMeals(); // Refresh the list after adding
     } catch (error) {
         console.error('Error adding meal:', error);
     }
 }
-
-
-// Fetch and display all meals on page load
-document.addEventListener('DOMContentLoaded', fetchAndDisplayMeals);
-
-
-
-document.getElementById('meal-form').addEventListener('submit', addMealToList);
-document.getElementById('saveBtn').addEventListener('click', addNewMeal);
-
-
 
 async function fetchAndDisplayMeals() {
     const mealList = document.getElementById('meal-list');
@@ -84,7 +63,8 @@ async function fetchAndDisplayMeals() {
                 <p>Ingredients: ${meal.ingredients}</p>
                 <p>Procedure: ${meal.procedur}</p>
                 <button class="delete-btn" onclick="deleteMeal(${meal.id})">Delete</button>
-                <button class="edit-btn" onclick="editMeal(${meal.id}, '${meal.name}', '${meal.ingredients}', '${meal.procedur}')">Edit</button>
+                <button class="edit-btn" onclick="editMeal(${meal.id}, '${meal.name}', '${meal.ingredients}', '${meal.procedur
+                }')">Edit</button>
             `;
             mealList.appendChild(mealItem);
         });
@@ -142,7 +122,7 @@ async function updateMeal() {
             body: JSON.stringify({
                 name: updatedName,
                 ingredients: updatedIngredients,
-                procedure: updatedProcedure
+                procedur: updatedProcedure
             })
         });
 
@@ -165,6 +145,7 @@ async function updateMeal() {
 }
 
 
-
-
-
+// Fetch and display all meals on page load
+document.addEventListener('DOMContentLoaded', fetchAndDisplayMeals);
+document.getElementById('meal-form').addEventListener('submit', addMealToList);
+document.getElementById('saveBtn').addEventListener('click', addNewMeal);
