@@ -26,6 +26,11 @@ document.getElementById('signin-form').addEventListener('submit', async (event) 
         if (response.ok) {
             alert('Sign in successful!');
             // Optionally, redirect to home page or dashboard
+            // Save user data to localStorage
+            localStorage.setItem('user', JSON.stringify(result.user));  // Save user data in localStorage
+            localStorage.setItem('authToken', result.token);  // Save token if provided by the backend
+
+            // Redirect user to a new page after successful sign-in
             window.location.href = 'index.html';  // or wherever you want to redirect
         } else {
             alert(result.message || 'Failed to sign in.');

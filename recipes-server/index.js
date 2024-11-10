@@ -2,6 +2,8 @@ const express = require('express');
 const mysql = require('mysql2');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
+
 const cors = require('cors'); // Import cors
 // const { getNutritionDataFromDB, updateNutritionDataInDB } = require('./nutritionController');
 
@@ -12,7 +14,8 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: 'http://127.0.0.1:5500'
+    origin: 'http://127.0.0.1:5500',
+    credentials: true,
 }));
 
 // Database connection
@@ -219,26 +222,37 @@ app.post('/signin', async (req, res) => {
             if (user.password !== password) {
                 return res.status(401).json({ message: 'Invalid credentials.' });
             }
+            const token = jwt.sign({ userId: user.id }, 'your_jwt_secret_key', { expiresIn: '1h' });
 
-            // Set cookies with user info
-            res.cookie('user_id', user.id, {
-                httpOnly: true,  // Cookie is not accessible via JavaScript (prevents XSS)
-                secure: process.env.NODE_ENV === 'production',  // Use secure cookies in production
-                maxAge: 3600000,  // Cookie expires in 1 hour
-                sameSite: 'Strict',  // Ensures the cookie is only sent to the same site
-            });
-            res.cookie('user_email', user.email, {
-                httpOnly: true,
-                secure: process.env.NODE_ENV === 'production',
-                maxAge: 3600000,
-                sameSite: 'Strict',
-            });
 
             // Return success response if the credentials match
-            return res.status(200).json({ message: 'Sign in successful!' });
+            return res.status(200).json({
+                message: 'Login successful',
+                user: {
+                    id: user.id,
+                    email: user.email
+                },
+                token: token  // Return token to store in localStorage
+            });
         });
     } catch (error) {
         console.error('Error during sign-in:', error);
         return res.status(500).json({ message: 'An error occurred while signing in.' });
     }
+});
+
+
+app.get('/profile', (req, res) => {
+    const userId = req.cookies.user_id;
+    if (!userId) {
+        return res.status(401).json({ message: 'Not authenticated.' });
+    }
+
+    // Fetch user data using userId from the database
+    db.query('SELECT * FROM users WHERE id = ?', [userId], (err, result) => {
+        if (err || result.length === 0) {
+            return res.status(404).json({ message: 'User not found.' });
+        }
+        res.status(200).json(result[0]);  // Send user data
+    });
 });
