@@ -24,14 +24,16 @@
     </nav>
     <div class="container">
         <h1 class="heading">Create Account</h1>
-        <form class="form">
-            <input type="text" class="input" placeholder="Full Name" required>
-            <input type="email" class="input" placeholder="Email Address" required>
-            <input type="password" class="input" placeholder="Password" required>
-            <input type="password" class="input" placeholder="Confirm Password" required>
+
+        <form id="signup-form" class="form">
+            <input type="text" id="full-name" class="input" placeholder="Full Name" required>
+            <input type="email" id="email" class="input" placeholder="Email Address" required>
+            <input type="password" id="password" class="input" placeholder="Password" required>
+            <input type="password" id="confirm-password" class="input" placeholder="Confirm Password" required>
 
             <button type="submit" class="signup-button">Sign Up</button>
         </form>
+        <script src="signup.js"></script>
 
         <div class="agreement">
             <a href="#">Terms and Conditions</a>
