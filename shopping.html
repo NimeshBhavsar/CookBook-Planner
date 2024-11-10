@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Planner</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .meal-card {
+            height: 350px;
+        }
+
+        .meal-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .shopping-list-item {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="http://127.0.0.1:5500/index.html">Cookbook & Planner</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="meal-planner.html">Meal Planner</a></li>
+                <li class="nav-item"><a class="nav-link" href="nutrition.html">Nutrition</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <div class="container my-5">
+        <div class="back-home">
+            <a href="index.html">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+        <h1 class="mb-4">Meal Planner</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Weekly Planner</h2>
+                <div id="planner" class="border p-3" style="height: 300px; overflow-y: auto;">
+                    <h4>Plan Your Meals</h4>
+                    <div class="row">
+                        <div class="col">
+                            <h5>Monday</h5>
+                            <p>Breakfast: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Lunch: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Dinner: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Snacks: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                        </div>
+                        <div class="col">
+                            <h5>Tuesday</h5>
+                            <p>Breakfast: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Lunch: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Dinner: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Snacks: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                        </div>
+                        <div class="col">
+                            <h5>Wednesday</h5>
+                            <p>Breakfast: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Lunch: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Dinner: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Snacks: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                        </div>
+                        <div class="col">
+                            <h5>Thursday</h5>
+                            <p>Breakfast: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Lunch: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Dinner: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Snacks: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                        </div>
+                        <div class="col">
+                            <h5>Friday</h5>
+                            <p>Breakfast: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Lunch: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Dinner: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Snacks: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                        </div>
+                        <div class="col">
+                            <h5>Saturday</h5>
+                            <p>Breakfast: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Lunch: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Dinner: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Snacks: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                        </div>
+                        <div class="col">
+                            <h5>Sunday</h5>
+                            <p>Breakfast: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Lunch: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Dinner: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                            <p>Snacks: <input type="text" placeholder="Enter meal..." class="form-control"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>Shopping List</h2>
+                <div id="shopping-list" class="border p-3" style="height: 300px; overflow-y: auto;">
+                    <div class="shopping-list-item">Vegetables: Tomatoes, Spinach, Carrots</div>
+                    <div class="shopping-list-item">Fruits: Apples, Bananas, Oranges</div>
+                    <div class="shopping-list-item">Grains: Rice, Quinoa, Whole Wheat Bread</div>
+                    <div class="shopping-list-item">Legumes: Lentils, Chickpeas, Beans</div>
+                    <div class="shopping-list-item">Spices: Turmeric, Cumin, Coriander</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="my-5">
+            <h2>Benefits of Meal Planning</h2>
+            <p>Meal planning is a great way to save time and money while ensuring that you eat healthy meals throughout
+                the week. Here are some benefits:</p>
+            <ul>
+                <li>Reduces food waste</li>
+                <li>Saves time in the kitchen</li>
+                <li>Helps in maintaining a balanced diet</li>
+                <li>Reduces the temptation of unhealthy takeout</li>
+            </ul>
+        </div>
+
+        <div class="my-5">
+            <h2>Healthy Indian Vegetarian Meal Ideas</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card meal-card">
+                        <img src="Healthy1.jpeg" class="card-img-top" alt="Vegetable Sambar">
+                        <div class="card-body">
+                            <h5 class="card-title">Vegetable Sambar</h5>
+                            <p class="card-text">A lentil-based vegetable stew, rich in protein and flavor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card meal-card">
+                        <img src="Healthy2.jpeg" class="card-img-top" alt="Chana Masala">
+                        <div class="card-body">
+                            <h5 class="card-title">Chana Masala</h5>
+                            <p class="card-text">A spicy chickpea curry that's hearty and nutritious.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card meal-card">
+                        <img src="Healthy3.jpeg" class="card-img-top" alt="Dal Tadka">
+                        <div class="card-body">
+                            <h5 class="card-title">Dal Tadka</h5>
+                            <p class="card-text">Flavored lentils cooked with spices and garnished with ghee.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card meal-card">
+                        <img src="Healthy4.jpeg" class="card-img-top" alt="Palak Rice">
+                        <div class="card-body">
+                            <h5 class="card-title">Palak Rice</h5>
+                            <p class="card-text">Healthy rice dish made with spinach and spices.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card meal-card">
+                        <img src="Healthy5.jpeg" class="card-img-top" alt="Besan Cheela">
+                        <div class="card-body">
+                            <h5 class="card-title">Besan Cheela</h5>
+                            <p class="card-text">Savory chickpea flour pancakes with vegetables.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card meal-card">
+                        <img src="Healthy6.jpeg" class="card-img-top" alt="Ragi Dosa">
+                        <div class="card-body">
+                            <h5 class="card-title">Ragi Dosa</h5>
+                            <p class="card-text">Nutritious dosa made from finger millet flour, served with chutney.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/meal-planner.js"></script>
+</body>
+
+</html>

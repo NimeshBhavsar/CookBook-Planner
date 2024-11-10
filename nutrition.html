@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Information</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="nutrition.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="http://127.0.0.1:5500/index.html">Cookbook & Planner</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="meal-planner.html">Meal Planner</a></li>
+                <li class="nav-item"><a class="nav-link" href="nutrition.html">Nutrition</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container my-5">
+        <h1 class="text-center">Nutrition Information</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Recipe Nutrition</h2>
+                <ul class="list-group" id="nutrition-info">
+                    <li class="list-group-item"><strong>Calories:</strong> <span id="calories-display">200</span> kcal
+                    </li>
+                    <li class="list-group-item"><strong>Protein:</strong> <span id="protein-display">10</span> g</li>
+                    <li class="list-group-item"><strong>Carbohydrates:</strong> <span id="carbs-display">30</span> g
+                    </li>
+                    <li class="list-group-item"><strong>Fats:</strong> <span id="fats-display">5</span> g</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h2>Customize Nutrition</h2>
+                <form id="nutrition-form">
+                    <div class="form-group">
+                        <label for="calories">Calories (kcal)</label>
+                        <input type="number" class="form-control" id="calories" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="protein">Protein (g)</label>
+                        <input type="number" class="form-control" id="protein" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="carbs">Carbohydrates (g)</label>
+                        <input type="number" class="form-control" id="carbs" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fats">Fats (g)</label>
+                        <input type="number" class="form-control" id="fats" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="index.html" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </div>
+
+    <script src="nutrition.js"></script>
+</body>
+
+</html>

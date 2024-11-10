@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Planner</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('/resources/Index\ Background.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: antiquewhite;
+        }
+
+        .meal-card {
+            height: 350px;
+        }
+
+        .meal-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .shopping-list-item {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        h1,
+        h2,
+        h3 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="http://127.0.0.1:5500/index.html">Cookbook & Planner</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="meal-planner.html">Meal Planner</a></li>
+                <li class="nav-item"><a class="nav-link" href="nutrition.html">Nutrition</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h1 class="mb-4">Meal Planner</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Add New Recipe</h2>
+                <form id="meal-form">
+                    <div class="form-group">
+                        <label for="mealName">Recipe Name:</label>
+                        <input type="text" id="mealName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mealIncredient">Incredient:</label>
+                        <textarea id="mealIncredient" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="mealProcedure">Procedure:</label>
+                        <textarea id="mealProcedure" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Recipe</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h2>My Recipe</h2>
+                <div id="meal-list" class="border p-3" style="height: 300px; overflow-y: auto;">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="my-5">
+            <h2>Weekly Planner</h2>
+            <form id="planner-form">
+                <div class="form-group">
+                    <label for="day">Day:</label>
+                    <select id="day" class="form-control">
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="breakfast">Breakfast:</label>
+                    <input type="text" id="breakfast" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="lunch">Lunch:</label>
+                    <input type="text" id="lunch" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="dinner">Dinner:</label>
+                    <input type="text" id="dinner" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="snacks">Snacks:</label>
+                    <input type="text" id="snacks" class="form-control">
+                </div>
+                <button type="button" id="saveBtn" class="btn btn-primary">Save Meal Plan</button>
+            </form>
+
+            <div id="planner" class="border mt-4 p-3">
+                <h3>Weekly Meal Plans</h3>
+                <div class="monday"><strong>Monday:</strong> No plan added</div>
+                <div class="tuesday"><strong>Tuesday:</strong> No plan added</div>
+                <div class="wednesday"><strong>Wednesday:</strong> No plan added</div>
+                <div class="thursday"><strong>Thursday:</strong> No plan added</div>
+                <div class="friday"><strong>Friday:</strong> No plan added</div>
+                <div class="saturday"><strong>Saturday:</strong> No plan added</div>
+                <div class="sunday"><strong>Sunday:</strong> No plan added</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="meal-planner.js"></script>
+</body>
+
+</html>
