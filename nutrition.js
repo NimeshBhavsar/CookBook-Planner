@@ -52,8 +52,6 @@ document.getElementById('nutrition-form').addEventListener('submit', async funct
         document.getElementById('carbs-display').textContent = carbs;
         document.getElementById('fats-display').textContent = fats;
 
-        // Clear the form fields if needed (optional)
-        document.getElementById('nutrition-form').reset();
     } catch (error) {
         console.error('Error updating nutrition data:', error);
     }

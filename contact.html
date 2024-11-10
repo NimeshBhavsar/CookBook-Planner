@@ -55,15 +55,45 @@
 
         <div class="container">
             <h1 class="heading">Contact Us</h1>
-            <form class="form">
-                <input type="text" class="input" placeholder="Your Name" required>
-                <input type="email" class="input" placeholder="Your Email" required>
-                <input type="text" class="input" placeholder="Subject" required>
-                <textarea class="input" rows="5" placeholder="Your Message" required></textarea>
-
+            <form class="form" id="contactForm">
+                <input type="text" id="name" class="input" placeholder="Your Name" required>
+                <input type="email" id="email" class="input" placeholder="Your Email" required>
+                <input type="text" id="subject" class="input" placeholder="Subject" required>
+                <textarea id="message" class="input" rows="5" placeholder="Your Message" required></textarea>
                 <button type="submit" class="send-button">Send Message</button>
             </form>
+            <script>
+                document.getElementById('contactForm').addEventListener('submit', async (event) => {
+                    event.preventDefault();
 
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value;
+
+                    try {
+                        const response = await fetch('http://localhost:3000/contact', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ name, email, subject, message }),
+                        });
+
+                        if (response.ok) {
+                            alert('Message sent successfully!');
+
+                            // No form reset here, keeping data visible
+                            document.getElementById("contactForm").reset();
+                        } else {
+                            alert('Failed to send message.');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert('An error occurred.');
+                    }
+                });
+            </script>
             <div class="footer">
                 We appreciate your feedback! <a href="index.html">Back to Home</a>
             </div>

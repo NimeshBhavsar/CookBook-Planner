@@ -2,7 +2,6 @@ const express = require('express');
 const mysql = require('mysql2');
 const dotenv = require('dotenv');
 const cors = require('cors'); // Import cors
-
 // const { getNutritionDataFromDB, updateNutritionDataInDB } = require('./nutritionController');
 
 
@@ -138,4 +137,51 @@ app.put('/nutrition', (req, res) => {
             res.status(404).json({ message: 'Nutrition data not found' });
         }
     });
+});
+
+
+
+
+// POST route to save contact form data
+app.post('/contact', (req, res) => {
+    const { name, email, subject, message } = req.body;
+
+    const query = 'INSERT INTO contact_messages (name, email, subject, message) VALUES (?, ?, ?, ?)';
+    db.query(query, [name, email, subject, message], (error, results) => {
+        if (error) {
+            console.error('Error saving contact message:', error);
+            res.status(500).json({ message: 'Failed to save contact message' });
+        } else {
+            res.status(200).json({ message: 'Contact message saved successfully' });
+        }
+    });
+});
+
+
+
+
+
+// POST route to handle sign-up
+app.post('/signup', async (req, res) => {
+    const { full_name, email, password } = req.body;
+
+    try {
+
+        // Insert user data into the database
+        const query = 'INSERT INTO users (full_name, email, password) VALUES (?, ?, ?)';
+        db.query(query, [full_name, email, password], (error, results) => {
+            if (error) {
+                if (error.code === 'ER_DUP_ENTRY') {
+                    res.status(409).json({ message: 'Email already registered' });
+                } else {
+                    res.status(500).json({ message: 'Failed to create user account' });
+                }
+            } else {
+                res.status(201).json({ message: 'Account created successfully' });
+            }
+        });
+    } catch (error) {
+        console.error('Error creating user account:', error);
+        res.status(500).json({ message: 'Failed to create user account' });
+    }
 });
